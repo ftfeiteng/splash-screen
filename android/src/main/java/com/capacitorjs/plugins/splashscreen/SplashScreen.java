@@ -94,8 +94,10 @@ public class SplashScreen {
      * @param activity
      * @param settings Settings used to show the Splash Screen
      */
-    private void showWithAndroid12API(final AppCompatActivity activity, final SplashScreenSettings settings) {
-        if (activity == null || activity.isFinishing()) return;
+    private void showWithAndroid12API(final AppCompatActivity activity, final SplashScreenSettings settings) throws Exception {
+        if (config.getAnimated()) {
+          throw new Exception("Android 12 API doesn't support animation");
+        }
 
         activity.runOnUiThread(
             () -> {
