@@ -86,13 +86,9 @@ public class SplashScreenPlugin: CAPPlugin {
 
         config.launchShowDuration = getConfig().getInt("launchShowDuration", config.launchShowDuration)
         config.launchAutoHide = getConfig().getBoolean("launchAutoHide", config.launchAutoHide)
-        if let animated = getConfig().getBoolean("animated") {
-           config.animated = animated
-        }
+        config.animated = getConfig().getBoolean("animated", config.animated)
         // Play the multiple image frames across the amount of milliseconds specified.
-        if let launchAnimationDuration = getConfig().getInt("launchAnimationDuration") {
-           config.launchAnimationDuration = launchAnimationDuration
-        }
+        config.launchAnimationDuration = getConfig().getInt("launchAnimationDuration", config.launchAnimationDuration)
         return config
     }
 
